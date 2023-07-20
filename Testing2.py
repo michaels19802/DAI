@@ -64,7 +64,8 @@ with dai.Device(pipeline) as device:
                 bbox = frame_norm(frame, (detection.xmin, detection.ymin, detection.xmax, detection.ymax))
                 cv.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 2)
                 cv.putText(frame, label_map[detection.label], (bbox[0], bbox[1]), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv.LINE_AA)
-                cv.putText(frame, f'{fps} FPS', (10, 10), cv.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1, cv.LINE_AA)
+
+            cv.putText(frame, f'{fps} FPS', (10, 10), cv.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1, cv.LINE_AA)
 
             cv.imshow('preview', frame)
 
