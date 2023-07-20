@@ -34,7 +34,7 @@ detection_nn.out.link(xout_nn.input)
 label_map = ['background', 'aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow',
              'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
 
-with dai.Device(pipeline) as device:
+with dai.Device(pipeline, maxUsbSpeed=dai.UsbSpeed.HIGH) as device:
     q_rgb = device.getOutputQueue('rgb')
     q_nn = device.getOutputQueue('nn')
     frame = None
@@ -63,7 +63,7 @@ with dai.Device(pipeline) as device:
             for detection in detections:
                 bbox = frame_norm(frame, (detection.xmin, detection.ymin, detection.xmax, detection.ymax))
                 cv.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 2)
-                cv.putText(frame, label_map[detection.label], (bbox[0], bbox[1]), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv.LINE_AA)
+                cv.putText(frame, f'{label_map[detection.label]} {int(detection.confidence * 100)}%', (bbox[0], bbox[1]), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv.LINE_AA)
 
             cv.putText(frame, f'{fps} FPS', (10, 10), cv.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1, cv.LINE_AA)
 
