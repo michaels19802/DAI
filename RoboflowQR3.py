@@ -9,7 +9,7 @@ with OakCamera() as oak:
                               awb_mode=dai.CameraControl.AutoWhiteBalanceMode.DAYLIGHT)
 
     nn = oak.create_nn('/home/michael/Dropbox/MichaelShared/BarcodeQRModel/barcode-and-qr-code-detection_2.json',
-                       color, nn_type='yolo', spatial=True)
+                       color, nn_type='yolo')
 
     nn.config_nn(conf_threshold=.1)
     visualizer = oak.visualize(nn, fps=True)
