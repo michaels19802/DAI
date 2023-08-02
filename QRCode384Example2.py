@@ -9,5 +9,5 @@ with OakCamera() as oak:
 
     nn.config_nn(conf_threshold=0.01)
     visualizer = oak.visualize(nn.out.main, fps=True)
-    visualizer.detections(hide_label=True, thickness=3, fill_transparency=.5).text(auto_scale=False)
+    visualizer.detections(hide_label=True, color=(0, 0, 255), thickness=3, fill_transparency=.5).text(auto_scale=False)
     oak.start(blocking=True)
