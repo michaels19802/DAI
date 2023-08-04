@@ -8,7 +8,7 @@ with OakCamera() as oak:
     color.config_color_camera(scene_mode=dai.CameraControl.SceneMode.BARCODE,
                               awb_mode=dai.CameraControl.AutoWhiteBalanceMode.DAYLIGHT)
 
-    nn = oak.create_nn('/home/michael/Dropbox/MichaelShared/BarcodeQRModel/barcode-and-qr-code-detection_2_openvino_2022.1_6shave.blob',
+    nn = oak.create_nn('/home/michael/Dropbox/MichaelShared/DepthAI/barcode-and-qr-code-detection_2_openvino_2022.1_6shave.blob',
                        color, nn_type='yolo')
     nn.config_yolo(num_classes=2,
                    coordinate_size=4,
