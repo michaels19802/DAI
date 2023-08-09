@@ -10,7 +10,7 @@ with OakCamera() as oak:
 
     model_config = {
         'source': 'roboflow',
-        'model': 'barcode-and-qr-code-detection/2',
+        'model': 'qrcodes-cgmfg/3',
         'key': 'fAaLtouDRX3lJQdOgyJ1'
     }
     nn = oak.create_nn(model_config, color)
