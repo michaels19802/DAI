@@ -3,8 +3,8 @@ import time
 from roboflowoak import RoboflowOak
 
 
-rf = RoboflowOak(model='qrcodes-cgmfg', confidence=0.1, overlap=0.5,
-                 version='3', api_key='fAaLtouDRX3lJQdOgyJ1', rgb=True,
+rf = RoboflowOak(model='barcodes-6kvgt', confidence=0.1, overlap=0.5,
+                 version='1', api_key='fAaLtouDRX3lJQdOgyJ1', rgb=True,
                  depth=True, device=None, blocking=True)
 
 while True:
