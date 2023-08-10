@@ -1,3 +1,5 @@
 *.pt
 *.jpeg
-/Datasets
+/datasets
+/runs
+*.yaml
