@@ -1,6 +1,15 @@
-from ultralytics import YOLO
+import depthai as dai
+from depthai_sdk import OakCamera
 
 
-model = YOLO('/home/michael/Projects/DAI/runs/detect/yolov8n_custom/weights/best.pt')
+with OakCamera() as oak:
+    color = oak.create_camera('color')
 
-model.export(format='pb')
+    color.config_color_camera(scene_mode=dai.CameraControl.SceneMode.BARCODE,
+                              awb_mode=dai.CameraControl.AutoWhiteBalanceMode.DAYLIGHT)
+
+    nn = oak.create_nn('/home/michael/Downloads/result/best.json', color, nn_type='yolo')
+
+    visualizer = oak.visualize(nn, fps=True)
+
+    oak.start(blocking=True)
