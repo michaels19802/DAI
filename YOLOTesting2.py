@@ -6,6 +6,6 @@ model = YOLO('yolov8n.pt')
 model.train(
     data='data.yaml',
     imgsz=640,
-    epochs=100,
+    epochs=200,
     batch=8,
     name='yolov8n_custom')
