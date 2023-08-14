@@ -8,7 +8,7 @@ with OakCamera() as oak:
     color.config_color_camera(scene_mode=dai.CameraControl.SceneMode.BARCODE,
                               awb_mode=dai.CameraControl.AutoWhiteBalanceMode.DAYLIGHT)
 
-    nn = oak.create_nn('/home/michael/Downloads/result/best.json', color)
+    nn = oak.create_nn('/home/michael/Dropbox/MichaelShared/DepthAI/result/best.json', color)
 
     visualizer = oak.visualize(nn, fps=True)
 
