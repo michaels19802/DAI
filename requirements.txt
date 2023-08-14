@@ -4,3 +4,4 @@ depthai
 depthai-sdk
 blobconverter
 roboflowoak
+roboflow
