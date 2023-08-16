@@ -1,3 +1,4 @@
+import time
 import requests
 import cv2 as cv
 import numpy as np
@@ -28,3 +29,5 @@ while True:
         cv.imwrite(file_path, img_small)
         project.upload(file_path, num_retry_uploads=3)
         print('Uploaded')
+        cv.imwrite(f'/home/michael/Ultralytics/TestImages/{int(time.time())}.png', img_small)
+        print('Saved')
