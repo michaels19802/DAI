@@ -7,7 +7,7 @@ model = YOLO('/home/michael/Dropbox/MichaelShared/DepthAI/yolov8n_custom/weights
 print(model.names)
 
 model.predict(
-    source='/home/michael/Desktop/Testing',
+    source='/home/michael/Ultralytics/TestImages',
     conf=0.4,
     show=False,
     save=True,
