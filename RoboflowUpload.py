@@ -2,6 +2,7 @@ import time
 import requests
 import cv2 as cv
 import numpy as np
+from ultralytics import YOLO
 from roboflow import Roboflow
 
 
@@ -14,6 +15,10 @@ rf = Roboflow(api_key='fAaLtouDRX3lJQdOgyJ1')
 project = rf.workspace('blue-mmlrh').project('qc-labels')
 file_path = '/home/michael/Pictures/RoboflowUpload.png'
 
+model = YOLO('/home/michael/Dropbox/MichaelShared/DepthAI/yolov8n_custom/weights/best.pt')
+
+print(model.names)
+
 while True:
 
     res = sess.get(url, stream=True).raw
@@ -21,6 +26,8 @@ while True:
     img = cv.imdecode(arr, cv.IMREAD_COLOR)
     img_small = img[400:-430, 70:-20]
     img_small = cv.resize(img_small, (img_small.shape[1] // 4, img_small.shape[0] // 4), interpolation=cv.INTER_AREA)
+
+    model.predict(source=img_small, conf=0.2, show=True, classes=[1, 2, 3])
 
     cv.imshow('img_small', img_small)
 
