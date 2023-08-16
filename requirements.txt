@@ -5,3 +5,4 @@ depthai-sdk
 blobconverter
 roboflowoak
 roboflow
+ultralytics
