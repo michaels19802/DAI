@@ -27,8 +27,9 @@ while True:
     img_small = img[400:-430, 70:-20]
     img_small = cv.resize(img_small, (img_small.shape[1] // 4, img_small.shape[0] // 4), interpolation=cv.INTER_AREA)
 
-    model.predict(source=img_small, conf=0.2, show=True, classes=[1, 2, 3])
+    res = model.predict(source=img_small, conf=0.2, classes=[1, 2, 3])
 
+    cv.imshow('Result', res[0].plot())
     cv.imshow('img_small', img_small)
 
     if cv.waitKey(2000) & 0xFF == ord('u'):
