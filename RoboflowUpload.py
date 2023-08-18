@@ -27,12 +27,12 @@ while True:
     img_small = img[400:-430, 70:-20]
     img_small = cv.resize(img_small, (img_small.shape[1] // 4, img_small.shape[0] // 4), interpolation=cv.INTER_AREA)
 
-    res = model.predict(source=img_small, conf=0.2, classes=[0, 1, 2, 3])
+    res = model.predict(source=img_small, conf=0.5, classes=[0, 1, 2, 3, 4, 5])
 
     cv.imshow('Result', res[0].plot())
     cv.imshow('img_small', img_small)
 
-    if cv.waitKey(2000) & 0xFF == ord('u'):
+    if cv.waitKey(500) & 0xFF == ord('u'):
         print('Uploading...')
         cv.imwrite(file_path, img_small)
         project.upload(file_path, num_retry_uploads=3)
