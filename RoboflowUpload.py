@@ -15,7 +15,7 @@ rf = Roboflow(api_key='fAaLtouDRX3lJQdOgyJ1')
 project = rf.workspace('blue-mmlrh').project('qc-labels')
 file_path = '/home/michael/Pictures/RoboflowUpload.png'
 
-model = YOLO('17.pt')
+model = YOLO('best.pt')
 
 print(model.names)
 
