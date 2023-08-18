@@ -12,7 +12,9 @@ model.predict(
     show=False,
     save=True,
     save_crop=False,
-    classes=[1, 2, 3]
+    classes=[0, 1, 2, 3, 4, 5],
+    line_width=1,
+    retina_masks=True
 )
 
 cv.waitKey(0)
