@@ -15,7 +15,7 @@ rf = Roboflow(api_key='fAaLtouDRX3lJQdOgyJ1')
 project = rf.workspace('blue-mmlrh').project('qc-labels')
 file_path = '/home/michael/Pictures/RoboflowUpload.png'
 
-model = YOLO('/home/michael/Dropbox/MichaelShared/DepthAI/yolov8n_custom/weights/best.pt')
+model = YOLO('17.pt')
 
 print(model.names)
 
@@ -27,7 +27,7 @@ while True:
     img_small = img[400:-430, 70:-20]
     img_small = cv.resize(img_small, (img_small.shape[1] // 4, img_small.shape[0] // 4), interpolation=cv.INTER_AREA)
 
-    res = model.predict(source=img_small, conf=0.2, classes=[1, 2, 3])
+    res = model.predict(source=img_small, conf=0.2, classes=[0, 1, 2, 3])
 
     cv.imshow('Result', res[0].plot())
     cv.imshow('img_small', img_small)
@@ -37,5 +37,5 @@ while True:
         cv.imwrite(file_path, img_small)
         project.upload(file_path, num_retry_uploads=3)
         print('Uploaded')
-        cv.imwrite(f'/home/michael/Ultralytics/TestImages/{int(time.time())}.png', img_small)
+        cv.imwrite(f'/home/michael/Ultralytics/TrainingImages/{int(time.time())}.png', img_small)
         print('Saved')
