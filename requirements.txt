@@ -1,8 +1,6 @@
 numpy
-opencv-python
+opencv-contrib-python
 depthai
 depthai-sdk
 blobconverter
 roboflowoak
-roboflow
-ultralytics
