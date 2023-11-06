@@ -1,0 +1,14 @@
+/home/michael/.config/Ultralytics/settings.yaml
+
+Within settings file, set these folders:
+
+datasets_dir: /home/michael/Ultralytics/Datasets
+weights_dir: /home/michael/Ultralytics/Weights
+runs_dir: /home/michael/Ultralytics/Runs
+
+Download from Roboflow and put into /home/michael/Ultralytics/Datasets
+
+'sudo apt install lzma-dev' 'sudo apt install liblzma-dev' before compiling python
+so those are included when compiling because ultralytics uses 'from _lzma import *'
+https://github.com/pytorch/vision/issues/2921#issuecomment-811767491
+
