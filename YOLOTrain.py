@@ -2,7 +2,8 @@ from ultralytics import YOLO
 
 
 # model = YOLO('yolov8n.pt')
-model = YOLO('yolov8n-seg.pt')
+# model = YOLO('yolov8n-seg.pt')
+model = YOLO('yolov8n-obb.pt')
 
 model.train(
     data='/home/michael/Ultralytics/Datasets/data.yaml',
