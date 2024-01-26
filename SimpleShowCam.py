@@ -8,5 +8,6 @@ with OakCamera(rotation=180) as oak:
                               effect_mode=dai.CameraControl.EffectMode.WHITEBOARD,
                               sharpness=4)
     left = oak.create_camera('left', resolution='800p', fps=15)
-    oak.visualize([color, left], fps=True)
+    oak.visualize([left], scale=.5, fps=True)
+    oak.visualize([color], fps=True)
     oak.start(blocking=True)
